@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>OnlyCams</title>
+  <style>
+    
+    h1 {
+      margin-top: 25px;
+    }
+
+    body { 
+      background: #222;
+      color: #fff;
+      text-align: center;
+      font-family: Arial;
+    }
+    video, img {
+      max-width: 80%;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Добро пожаловать, {{ user.username }}!</h1>
+  <form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <button type="submit">Выйти</button>
+
+</form>
+
+  <h2>Камера онлайн</h2>
+
+  <img src="{% url 'video_feed' %}" alt="Не подключено">
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+<a href= "/admin/" class="corner-button">Для администраторов</a>
+
+<div class="auth-container">
+  <h2>Вход</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти</button>
+    <a href="{% url 'registration' %}" class="btn-link">Зарегистрироваться</a>
+  </form>
+</div>
